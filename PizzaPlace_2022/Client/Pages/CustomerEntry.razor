@@ -1,0 +1,70 @@
+﻿<h1 class="mt-2 mb-2">@Title</h1>
+
+<EditForm Model="@Customer"
+    OnValidSubmit="@ValidSubmit">
+    <DataAnnotationsValidator />
+
+    <InputWatcher FieldChanged="@FieldChanged" @ref="@inputWatcher"/>
+
+
+<fieldset>
+    <div class="row mb-2"> 
+        <label class="col-2" for="name">Tên Khách Hàng:</label>
+        <InputText class="form-control col-6"
+            @bind-Value="@Customer.Name" />
+    </div>
+    <div class="row mb-2">
+        <div class="col-6 offset-2">
+            <ValidationMessage For="@(() => Customer.Name)" />
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-2" for="street">Địa Chỉ:</label>
+        <InputText class="form-control col-6"
+            @bind-Value="@Customer.Street" />
+    </div>
+    <div class="row mb-2">
+        <div class="col-6 offset-2">
+            <ValidationMessage For="@(() => Customer.Street)" />
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-2" for="city">Thành Phố :</label>
+        <InputText class="form-control col-6"
+            @bind-Value="@Customer.City" />
+    </div>
+    <div class="row mb-2">
+        <div class="col-6 offset-2">
+            <ValidationMessage For="@(() => Customer.City)" />
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <label class="col-2" for="SDT">Số điện thoại :</label>
+        <InputText class="form-control col-6"
+            @bind-Value="@Customer.SDT" />
+    </div>
+    <div class="row mb-2">
+        <div class="col-6 offset-2">
+            <ValidationMessage For="@(() => Customer.SDT)" />
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <label class="col-2" for="DOB">Ngày sinh :</label>
+        <InputText class="form-control col-6"
+            @bind-Value="@Customer.DOB" />
+    </div>
+    <div class="row mb-2">
+        <div class="col-6 offset-2">
+            <ValidationMessage For="@(() => Customer.DOB)" />
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <button class="@ButtonClass" disabled="@isInvalid">
+            @ButtonTitle
+        </button>
+    </div>
+</fieldset>
+</EditForm>
